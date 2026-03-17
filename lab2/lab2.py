@@ -1,4 +1,4 @@
-# 1. Лог файлын жасау
+# 1.
 with open("shop_logs.txt", "w", encoding="utf-8") as f1:
     f1.write("2026-02-01;user_1;LOGIN\n")
     f1.write("2026-02-01;user_2;LOGIN\n")
@@ -124,39 +124,33 @@ orders_data = [
         "total": 70000
     }
 ]
-
 with open("orders.json", "w", encoding="utf-8") as f:
-    json.dump(orders_data, f, indent=4)
+        json.dump(orders_data, f, indent=4)
 
 with open("orders.json", "r", encoding="utf-8") as f:
-    orders = json.load(f)
-
+        orders = json.load(f)
 
 total_revenue = 0
 user_orders_count = {}
 items_count = {}
 total_items_sold = 0
-
 max_price = 0
 top_user = ""
 
-
 for order in orders:
-    total_revenue += order["total"]
-
     user = order["user"]
+    total_revenue += order["total"]
     user_orders_count[user] = user_orders_count.get(user, 0) + 1
 
-    for item in order["items"]:
-        total_items_sold += 1
-        items_count[item] = items_count.get(item, 0) + 1
+for item in order['items']:
+    total_items_sold += 1
+    items_count[item] = items_count.get(item,0) +1
 
     if order["total"] > max_price:
         max_price = order["total"]
         top_user = user
 
-most_popular_item = max(items_count, key=items_count.get)
-
+        most_popular_item = max(items_count, key=items_count.get)
 summary = {
     "total_revenue": total_revenue,
     "top_user": top_user,
@@ -167,4 +161,13 @@ summary = {
 with open("summary.json", "w", encoding="utf-8") as f:
     json.dump(summary, f, indent=4, ensure_ascii=False)
 
-print("Талдау аяқталды. summary.json файлы дайын!")
+
+
+
+
+
+
+
+
+
+
