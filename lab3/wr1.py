@@ -111,7 +111,6 @@ print(filtered)
 numbers = [1,2,3,4,5]
 status_dict = {x: ("чётное" if x % 2 == 0 else "нечётное") for x in numbers}
 print(status_dict)
-
 #3.5
 matrix = [[1,2], [3,4], [5,6]]
 flat_list = [item for row in matrix for item in row]
@@ -144,10 +143,14 @@ print(result)
 
 #4.3
 def process_numbers(numbers):
+    numbers = [5, -2, 8, 0, -7, 3]
     positives = filter(lambda x: x >= 0, numbers)
     transformed = map(lambda x: x / 2 if x % 2 == 0 else x * 3 + 1, positives)
     for val in transformed:
         yield val
+        for x in process_numbers(numbers):
+            print(x)
+
 
 #4.4
 students = [("Иван", 85), ("Анна", 72), ("Пётр", 90), ("Мария", 60)]
