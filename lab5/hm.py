@@ -157,7 +157,7 @@ def welcome():
     return {"message": "Сервер қосулы. Alibi және Asel есімдері қолданылды. /docs арқылы тексеріңіз"}
 
 
-# 31 және 32 Есеп
+# 31 . 32
 @app.get("/task31-32")
 def task_31_32():
     data = {
@@ -220,7 +220,7 @@ def task_38_40():
     order_counts = merged.groupby("user_name")["order_id"].count().reset_index(name="orders_count")
     return {"merged": merged.to_dict(orient="records"), "stats": order_counts.to_dict(orient="records")}
 
-# 41, 42, 43, 44 Есеп
+# 41, 42, 43, 44
 @app.get("/task41-44")
 def task_41_44():
     data = {
@@ -240,7 +240,7 @@ def task_41_44():
     sorted_df = final_sort.sort_values(by=["total_sum", "mean_total"], ascending=[False, True])
     return sorted_df.to_dict(orient="records")
 
-# 45 Есеп (Финалдық есеп)
+# 45 Есеп
 @app.get("/task45", response_class=HTMLResponse)
 def task_45():
     data = {
